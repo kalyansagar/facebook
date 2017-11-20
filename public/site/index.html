@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facebook</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+  <script src="config.js"></script>
+
+</head>
+<body>
+
+
+<div id="user_nav">
+    <div id="login" style="display: none;">
+    </div>
+    <div id="home" style="display: none;">
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({url: Config.url + "/welcome/user?_dc="+(new Date().valueOf()), xhrFields: {
+            withCredentials: true
+        }, success: function(result){
+            console.log(result)
+            if (result) {
+                $("#home").show();
+                $("#home").html('Signed in as <strong>'+ result.name +'</strong>! <a id="sign_out" href="'+Config.url+'/signout">Sign out</a>');
+            } else {
+                $("#login").show();
+                $("#login").html('<a href="'+Config.url+'/auth/facebook">Sign in with Facebook</a>');
+            }
+        }});
+    })
+</script>
+
+</body>
+</html>

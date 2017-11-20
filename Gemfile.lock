@@ -99,6 +99,7 @@ GEM
       omniauth (~> 1.2)
     pg (0.21.0)
     rack (1.6.8)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -184,6 +185,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook (~> 4.0)
   pg
+  rack-cors
   rails (= 4.2.6)
   rails_12factor
   sass-rails (~> 5.0)
